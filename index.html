@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Prompt Generator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fff1f4, #f5f5ff);
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 25px;
+    }
+
+    .images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .image-box {
+      border: 2px dashed #ddd;
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      background: #fafafa;
+    }
+
+    .image-box img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .image-box p {
+      margin: 8px 0 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 300px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #ff4d6d;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e83e5b;
+    }
+
+    @media (max-width: 650px) {
+      .images {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>❤️ AI Image Prompt</h1>
+
+    <!-- Reference Images -->
+    <div class="images">
+
+      <div class="image-box">
+        <img
+          src="7b860f4e03e6fcb24a51305ede614b8c.jpg"
+          alt="Reference Image 1">
+        <p>Reference Image 1</p>
+      </div>
+
+      <div class="image-box">
+        <img
+          src="WhatsApp Image 2025-11-23 at 13.51.18_499bc35e.jpg"
+          alt="Reference Image 2">
+        <p>Reference Image 2</p>
+      </div>
+
+    </div>
+
+    <!-- Prompt -->
+    <textarea id="prompt">Create a realistic full-body fashion portrait using the uploaded reference images.
+
+Use the second reference image as the primary outfit reference. The subject should wear a black floral printed long kurti/dress with white pants. Preserve the floral pattern, loose flowy silhouette, long sleeves, and elegant modest style.
+
+Use the first reference image for the overall casual mirror-selfie composition. The subject should pose naturally while holding a smartphone in front of the face.
+
+Clean indoor background with subtle wall décor and green plants. Soft natural lighting, realistic fabric texture, detailed hair, photorealistic skin, high-quality smartphone photography, natural colors, realistic proportions.
+
+Negative prompt:
+blurry, low quality, distorted face, extra fingers, missing fingers, deformed hands, duplicate body parts, unnatural anatomy, oversaturated colors, cartoon, CGI, watermark, text.</textarea>
+
+    <button onclick="copyPrompt()">📋 Copy Prompt</button>
+
+  </div>
+
+  <script>
+    function copyPrompt() {
+      const prompt = document.getElementById("prompt");
+
+      navigator.clipboard.writeText(prompt.value).then(() => {
+        alert("Prompt copied successfully ❤️");
+      });
+    }
+  </script>
+
+</body>
+</html>
